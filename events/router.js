@@ -33,6 +33,35 @@ eventRouter.get(
   }
 )
 
+// // Read future events
+// eventRouter.get(
+//   '/events',
+//   async (request, response, next) => {
+//     try {
+//       const today = new Date();
+//       const day = String(today.getDate()).padStart(2, '0');
+//       const month = String(today.getMonth() + 1).padStart(2, '0')
+//       const year = today.getFullYear();
+//       const currentDay = year + '-' + month + '-' + day;
+
+//       const limit = request.query.limit || 9
+//       const offset = request.query.offset || 0
+
+//       const eventsList = await Event.findAndCountAll({
+//         where: {
+//           startdate: {
+//             [Op.gt]: currentDay
+//           }
+//         }
+//       }, { limit, offset })
+//       response.json({ events: eventsList.rows, total: eventsList.count })
+
+//     } catch (error) {
+//       next(error)
+//     }
+//   }
+// )
+
 // Read one event
 eventRouter.get(
   '/events/:id',
