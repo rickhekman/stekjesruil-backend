@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const database = require('../database')
 
 const Event = database.define(
-  '/event',
+  'event',
   {
     title: {
       type: Sequelize.STRING,
@@ -27,6 +27,11 @@ const Event = database.define(
     enddate: {
       type: Sequelize.STRING,
       field: 'Event_end_date',
+      allownull: true
+    },
+    locationname: {
+      type: Sequelize.STRING,
+      field: 'Location_name',
       allownull: true
     },
     address1: {
@@ -54,8 +59,14 @@ const Event = database.define(
       field: 'Location_country',
       allownull: true
     },
+    website: {
+      type: Sequelize.STRING,
+      field: 'Location_website',
+      allownull: true
+    },
     geolocation: {
-      type: Sequelize.DECIMAL(9, 6),
+      // type: Sequelize.DECIMAL(9, 6),
+      type: Sequelize.STRING,
       field: 'Geolocation',
       allownull: true
     },
