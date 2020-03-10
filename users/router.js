@@ -5,6 +5,7 @@ const User = require('./model')
 const bcrypt = require('bcrypt')
 const { toJWT } = require('../auth/jwt')
 
+// Create a user account
 userRouter.post(
   '/signup',
   async (request, response) => {
@@ -27,12 +28,13 @@ userRouter.post(
           return response.status(400).send({ message: "Email not unique" });
 
         default:
-          return response.status(400).send("Baaaddd request");
+          return response.status(400).send("Bad request");
       }
     }
   }
-);
+)
 
+// Login user
 userRouter.post(
   '/login',
   async (request, response) => {
@@ -67,6 +69,86 @@ userRouter.post(
       response.status(400).send({
         message: `Error ${error.name}: ${error.message}`
       });
+    }
+  }
+)
+
+// Read all users
+userRouter.get(
+  '/users',
+  async (request, response, next) => {
+    try {
+
+      const limit = request.query.limit || 9
+      const offset = request.query.offset || 0
+
+      const usersList = await User.findAndCountAll({ limit, offset })
+      response.json({ usersrows: usersList.rows, usertotal: usersList.count })
+
+    } catch (error) {
+      next(error)
+    }
+  }
+)
+
+//Read one user
+userRouter.get(
+  '/users/:id',
+  async (request, response, next) => {
+    try {
+
+      const user = await User.findByPk(request.params.id)
+      if (!user) {
+        response.status(404).send(`That user doesn't exist`)
+      } else {
+        response.json(user)
+      }
+
+    } catch (error) {
+      next(error)
+    }
+  }
+)
+
+// Update user
+userRouter.put(
+  '/users/:id',
+  async (request, response, next) => {
+    try {
+
+      const user = await User.findByPk(request.params.id)
+      if (!user) {
+        response.status(404).send(`That user doesn't exist`)
+      } else {
+        user.update(request.body)
+        response.status(200).send('User updated')
+      }
+
+    } catch (error) {
+      next(error)
+    }
+  }
+)
+
+// Delete user
+userRouter.delete(
+  '/users/:id',
+  async (request, response, next) => {
+    try {
+      const user = await User.findByPk(request.params.id)
+      if (!user) {
+        response.status(404).send(`That user doesn't exist`)
+      } else {
+        await user.destroy({
+          where: {
+            id: request.params.id
+          }
+        })
+        response.status(204).send(`User deleted`)
+      }
+
+    } catch (error) {
+      next(error)
     }
   }
 )
