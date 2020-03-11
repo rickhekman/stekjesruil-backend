@@ -64,10 +64,14 @@ const Event = database.define(
       field: 'Location_website',
       allownull: true
     },
-    geolocation: {
-      // type: Sequelize.DECIMAL(9, 6),
+    latitude: {
       type: Sequelize.STRING,
-      field: 'Geolocation',
+      field: 'Location_latitude',
+      allownull: true
+    },
+    longitude: {
+      type: Sequelize.STRING,
+      field: 'Location_longitude',
       allownull: true
     },
     eventurl: {

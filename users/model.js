@@ -70,16 +70,21 @@ const User = database.define(
       field: 'User_country',
       allownull: true
     },
-    geolocation: {
-      // type: Sequelize.DECIMAL(9, 6),
+    latitude: {
       type: Sequelize.STRING,
-      field: 'Geolocation',
+      field: 'User_latitude',
+      allownull: true
+    },
+    longitude: {
+      type: Sequelize.STRING,
+      field: 'User_longitude',
       allownull: true
     },
     admin: {
       type: Sequelize.BOOLEAN,
       field: 'User_admin',
-      allownull: true
+      allownull: true,
+      defaultValue: false
     }
   }
 )
