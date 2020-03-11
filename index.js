@@ -3,6 +3,7 @@ const port = process.env.PORT || 4000;
 
 const eventsRouter = require('./events/router')
 const userRouter = require('./users/router')
+const cuttingRouter = require('./cuttings/router')
 
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -17,6 +18,7 @@ app.use(parserMiddleware)
 
 app.use(eventsRouter)
 app.use(userRouter)
+app.use(cuttingRouter)
 
 
 app.listen(
