@@ -7,7 +7,7 @@ const Event = database.define(
     title: {
       type: Sequelize.STRING,
       field: 'Event_title',
-      allownull: true
+      allownull: false
     },
     photo: {
       type: Sequelize.STRING,
@@ -22,7 +22,7 @@ const Event = database.define(
     startdate: {
       type: Sequelize.STRING,
       field: 'Event_start_date',
-      allownull: true
+      allownull: false
     },
     enddate: {
       type: Sequelize.STRING,
