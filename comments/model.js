@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize')
 const database = require('../database')
+const Cutting = require('../cuttings/model')
+const User = require('../users/model')
 
 const Comment = database.define(
   'comment',
@@ -11,5 +13,10 @@ const Comment = database.define(
     }
   }
 )
+
+Comment.belongsTo(Cutting)
+Cutting.hasMany(Comment)
+Comment.belongsTo(User)
+User.hasMany(Comment)
 
 module.exports = Comment
