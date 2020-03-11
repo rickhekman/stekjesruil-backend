@@ -1,15 +1,18 @@
 const { Router } = require('express')
 const eventRouter = new Router()
 const Event = require('./model')
+const auth = require('../auth/middleware')
 const { Op } = require('sequelize')
 
 
 // Create a new event
 eventRouter.post(
-  '/events',
+  '/events', auth,
   async (request, response, next) => {
     try {
-      const event = await Event.create(request.body)
+      const Id = request.user.id
+      const authEvent = { ...request.body.newEventData, userId: Id }
+      const event = await Event.create(authEvent)
       response.json(event)
 
     } catch (error) {
@@ -18,31 +21,16 @@ eventRouter.post(
   }
 )
 
-// // Read all events
-// eventRouter.get(
-//   '/events',
-//   async (request, response, next) => {
-//     try {
-
-//       const eventsList = await Event.findAll()
-//       response.json(eventsList)
-
-//     } catch (error) {
-//       next(error)
-//     }
-//   }
-// )
-
 // Read future events
 eventRouter.get(
   '/events',
   async (request, response, next) => {
     try {
       const today = new Date();
-      const day = String(today.getDate()).padStart(2, '0');
+      const day = String(today.getDate() - 1).padStart(2, '0');
       const month = String(today.getMonth() + 1).padStart(2, '0')
       const year = today.getFullYear();
-      const currentDay = year + '-' + month + '-' + day;
+      const yesterDay = year + '-' + month + '-' + day;
 
       const limit = request.query.limit || 9
       const offset = request.query.offset || 0
@@ -50,7 +38,7 @@ eventRouter.get(
       const eventsList = await Event.findAndCountAll({
         where: {
           startdate: {
-            [Op.gt]: currentDay
+            [Op.gt]: yesterDay
           }
         }
       }, { limit, offset })

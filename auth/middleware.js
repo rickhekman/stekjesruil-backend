@@ -1,16 +1,16 @@
-const User = require('../user/model');
+const User = require('../users/model');
 const { toData } = require('./jwt');
 
 async function auth(request, response, next) {
   const auth =
     request.headers.authorization && request.headers.authorization.split(" ");
-  // console.log('\n\n\n AUTH TEST!!!', auth)
+
   if (auth && auth[0] === "Bearer" && auth[1]) {
     try {
       const data = toData(auth[1]);
-      // console.log('\n\n\n DATA TEST!!!', data)
+
       const user = await User.findByPk(data.id);
-      // console.log('\n\n\n USER TEST!!', user.dataValues)
+
       if (!user) return next("User does not exist");
 
       request.user = user;
