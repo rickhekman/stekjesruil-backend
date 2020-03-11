@@ -58,7 +58,7 @@ eventRouter.get(
 
       const event = await Event.findByPk(request.params.id)
       if (!event) {
-        response.status(404).send(`This event doesn't exist`)
+        response.status(404).send(`That event doesn't exist`)
       } else {
         response.json(event)
       }
@@ -77,7 +77,7 @@ eventRouter.put(
 
       const event = await Event.findByPk(request.params.id)
       if (!event) {
-        response.status(404).send(`This event doesn't exist`)
+        response.status(404).send(`That event doesn't exist`)
       } else {
         event.update(request.body)
         response.status(200).send('Event updated')
@@ -97,7 +97,7 @@ eventRouter.delete(
 
       const event = await Event.findByPk(request.params.id)
       if (!event) {
-        response.status(404).send(`This event doesn't exist`)
+        response.status(404).send(`That event doesn't exist`)
       } else {
         await event.destroy({
           where: {
