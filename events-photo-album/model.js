@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const database = require('../database')
+const database = require('../database');
+const User = require('../users/model')
 
 const PastEvent = database.define(
   'pastevent',
@@ -21,5 +22,8 @@ const PastEvent = database.define(
     }
   }
 )
+
+PastEvent.belongsTo(User)
+User.hasMany(PastEvent)
 
 module.exports = PastEvent

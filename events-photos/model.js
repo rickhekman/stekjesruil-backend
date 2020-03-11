@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
-const database = require('../database')
+const database = require('../database');
+const PastEvent = require('../events-photo-album/model')
 
-const eventPhoto = database.define(
+const EventPhoto = database.define(
   'eventphoto',
   {
     url: {
@@ -12,4 +13,7 @@ const eventPhoto = database.define(
   }
 )
 
-module.exports = eventPhoto
+EventPhoto.belongsTo(PastEvent)
+PastEvent.hasMany(EventPhoto)
+
+module.exports = EventPhoto

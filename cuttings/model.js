@@ -1,5 +1,7 @@
-const Sequelize = require('sequelize')
-const database = require('../database')
+const Sequelize = require('sequelize');
+const database = require('../database');
+const User = require('../users/model');
+
 
 const Cutting = database.define(
   'cutting',
@@ -21,5 +23,9 @@ const Cutting = database.define(
     }
   }
 )
+
+Cutting.belongsTo(User)
+User.hasMany(Cutting)
+
 
 module.exports = Cutting
