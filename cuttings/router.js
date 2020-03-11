@@ -54,7 +54,7 @@ cuttingRouter.get(
   }
 )
 
-// Update user
+// Update cutting
 cuttingRouter.put(
   '/cuttings/:id',
   async (request, response, next) => {

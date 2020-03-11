@@ -5,6 +5,7 @@ const eventsRouter = require('./events/router')
 const userRouter = require('./users/router')
 const cuttingRouter = require('./cuttings/router')
 const commentRouter = require('./comments/router')
+const pastEventRouter = require('./events-photo-album/router')
 
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -21,6 +22,7 @@ app.use(eventsRouter)
 app.use(userRouter)
 app.use(cuttingRouter)
 app.use(commentRouter)
+app.use(pastEventRouter)
 
 
 app.listen(
