@@ -30,7 +30,7 @@ pastEventRouter.get(
       const offset = request.query.offset || 0
 
       const pastEventsList = await PastEvent.findAndCountAll({ limit, offset })
-      response.json({ pasteventsrows: pastEventsList.rows, pasteventstotal: pastEventsList.count })
+      response.json({ pastEventsList: pastEventsList.rows, pastEventTotal: pastEventsList.count })
 
     } catch (error) {
       next(error)

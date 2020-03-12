@@ -27,7 +27,7 @@ cuttingRouter.get(
       const offset = request.query.offset || 0
 
       const cuttingsList = await Cutting.findAndCountAll({ limit, offset })
-      response.json({ cuttingsrows: cuttingsList.rows, cuttingtotal: cuttingsList.count })
+      response.json({ cuttingsList: cuttingsList.rows, cuttingTotal: cuttingsList.count })
 
     } catch (error) {
       next(error)

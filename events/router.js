@@ -42,7 +42,7 @@ eventRouter.get(
           }
         }
       }, { limit, offset })
-      response.json({ eventslist: eventsList.rows, eventstotal: eventsList.count })
+      response.json({ eventsList: eventsList.rows, eventTotal: eventsList.count })
 
     } catch (error) {
       next(error)

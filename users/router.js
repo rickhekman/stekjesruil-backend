@@ -83,7 +83,7 @@ userRouter.get(
       const offset = request.query.offset || 0
 
       const usersList = await User.findAndCountAll({ limit, offset })
-      response.json({ usersrows: usersList.rows, usertotal: usersList.count })
+      response.json({ usersList: usersList.rows, userTotal: usersList.count })
 
     } catch (error) {
       next(error)

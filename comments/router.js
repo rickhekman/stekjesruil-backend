@@ -27,7 +27,7 @@ commentRouter.get(
       const offset = request.query.offset || 0
 
       const commentsList = await Comment.findAndCountAll({ limit, offset })
-      response.json({ commentsrows: commentsList.rows, commentstotal: commentsList.count })
+      response.json({ commentsList: commentsList.rows, commentTotal: commentsList.count })
 
     } catch (error) {
       next(error)
