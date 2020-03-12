@@ -30,7 +30,7 @@ eventPhotoRouter.get(
       const offset = request.query.offset || 0
 
       const eventphotosList = await EventPhoto.findAndCountAll({ limit, offset })
-      response.json({ photosrows: eventphotosList.rows, photostotal: eventphotosList.count })
+      response.json({ photosList: eventphotosList.rows, photoTotal: eventphotosList.count })
 
     } catch (error) {
       next(error)
