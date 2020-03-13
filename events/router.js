@@ -1,9 +1,8 @@
 const { Router } = require('express');
-const eventRouter = new Router();
-const Event = require('./model');
-const auth = require('../auth/middleware');
 const { Op } = require('sequelize');
-
+const auth = require('../auth/middleware');
+const Event = require('./model');
+const eventRouter = new Router();
 
 // Create a new event
 eventRouter.post(

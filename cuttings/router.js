@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const cuttingRouter = new Router();
-const Cutting = require('./model');
 const auth = require('../auth/middleware');
+const Cutting = require('./model');
+const cuttingRouter = new Router();
 
 // Create a new cutting
 cuttingRouter.post(

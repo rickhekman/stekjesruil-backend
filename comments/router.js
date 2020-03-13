@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const commentRouter = new Router();
 const Comment = require('./model');
+const commentRouter = new Router();
 
 // Create a new comment
 commentRouter.post(
