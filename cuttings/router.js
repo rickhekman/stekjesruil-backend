@@ -1,14 +1,17 @@
 const { Router } = require('express');
 const cuttingRouter = new Router();
 const Cutting = require('./model');
+const auth = require('../auth/middleware');
 
 // Create a new cutting
 cuttingRouter.post(
-  '/cuttings',
+  '/cuttings', auth,
   async (request, response, next) => {
     try {
 
-      const cutting = await Cutting.create(request.body)
+      const Id = request.user.id
+      const authCutting = { ...request.body.newCuttingData, userId: Id }
+      const cutting = await Cutting.create(authCutting)
       response.json(cutting)
 
     } catch (error) {
