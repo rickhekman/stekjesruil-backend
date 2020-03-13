@@ -10,6 +10,7 @@ eventRouter.post(
   '/events', auth,
   async (request, response, next) => {
     try {
+
       const Id = request.user.id
       const authEvent = { ...request.body.newEventData, userId: Id }
       const event = await Event.create(authEvent)
