@@ -1,9 +1,6 @@
 const { Router } = require('express');
-const pastEventRouter = new Router();
 const PastEvent = require('./model');
-const auth = require('../auth/middleware');
-const { Op } = require('sequelize');
-
+const pastEventRouter = new Router();
 
 // Create a new event photo album
 pastEventRouter.post(
