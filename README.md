@@ -1,4 +1,4 @@
-# stekjesruil backend side 
+# Stekjesruil App backend :seedling:
 
 More explanation about the project is available in the [frontend repository](https://github.com/rickhekman/stekjesruil-frontend)
 
@@ -13,7 +13,7 @@ Install the dependencies and devDependencies and start the server.
 cd into the frontend directory
 $ npm install
 $ node index.js
-or when you use nodemon
+or when you use nodemon:
 $ nodemon
 ```
 
