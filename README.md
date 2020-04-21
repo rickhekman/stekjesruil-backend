@@ -4,13 +4,19 @@ More explanation about the project is available in the [frontend repository](htt
 
 ### Installation
 
-Download or clone this repository:
+Download or clone the repository:
 ```sh
 $ git clone git@github.com:rickhekman/stekjesruil-backend.git
 ```
-Install the dependencies and devDependencies and start the server.
+
+Create and start a (Docker) container to run the database locally: 
 ```sh
-cd into the frontend directory
+$ docker start nameofyourcontainer
+```
+
+Install the dependencies and devDependencies and start the server and connect to the database:
+```sh
+cd into the backend directory
 $ npm install
 $ node index.js
 or when you use nodemon:
@@ -24,12 +30,13 @@ Download or clone the [frontend repository](https://github.com/rickhekman/stekje
 
 * [Express](https://expressjs.com/) - Node.js web application framework
 * [Sequelize](https://sequelize.org/) - Sequelize ORM is a promise-based Node.js ORM for Postgres
-* [Node postgres](https://www.npmjs.com/package/pg) - Non-blocking PostgreSQL client for Node.js. Pure JavaScript and optional native libpq bindings.
+* [PostgreSQL](https://www.postgresql.org/) - PostgreSQL is a powerful, open source object-relational database system.
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) - A library to help you hash passwords.
 * [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) - A compact, URL-safe means of representing
    claims to be transferred between two parties.
 * [Cors](https://www.npmjs.com/package/cors) - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 * [Body parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware.
+* [Docker](https://www.docker.com/) - Service for finding and sharing container images with your team and the Docker community
 
 #### This is version 0.1.0  
 
