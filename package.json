@@ -2,7 +2,6 @@
   "name": "stekjesruil-backend",
   "version": "1.0.0",
   "description": "plant cuttings app",
-  "main": "index.js",
   "private": true,
   "scripts": {
     "start": "node index.js"
