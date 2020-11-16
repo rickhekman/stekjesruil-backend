@@ -1,10 +1,9 @@
-const Sequelize = require('sequelize')
-// const databaseUrl = process.env.DATABASE_URL || 'https://stekjesruil.herokuapp.com/'
-const databaseUrl = process.env.DATABASE_URL || 'postgres://postgres:cuttings@localhost:5432/postgres'
-const connection = new Sequelize(databaseUrl)
+const Sequelize = require('sequelize');
+const databaseUrl = process.env.DATABASE_URL || 'postgres://postgres:cuttings@localhost:5432/postgres';
+const connection = new Sequelize(databaseUrl);
 
 connection
-  .sync({ force: false })
+  .sync()
   .then(() => console.log('Connected to database!'))
   .catch(console.error)
 
