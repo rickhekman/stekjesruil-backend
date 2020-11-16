@@ -8,8 +8,6 @@ const commentRouter = require('./comments/router')
 const pastEventRouter = require('./events-photo-album/router')
 const eventPhotoRouter = require('./events-photos/router')
 
-const port = process.env.PORT || 4000;
-
 const app = express();
 
 const corsMiddleware = cors()
@@ -25,7 +23,7 @@ app.use(commentRouter)
 app.use(pastEventRouter)
 app.use(eventPhotoRouter)
 
-
+const port = process.env.PORT || 4000;
 app.listen(
   port,
   () => console.log(`Server is listening on port ${port}`)
