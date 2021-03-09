@@ -3,7 +3,7 @@ const databaseUrl = process.env.DATABASE_URL || 'postgres://postgres:cuttings@lo
 const connection = new Sequelize(databaseUrl);
 
 connection
-  .sync()
+  .sync({ force: false })
   .then(() => console.log('Connected to database!'))
   .catch(console.error)
 
