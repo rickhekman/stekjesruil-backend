@@ -28,15 +28,15 @@ Download or clone the [frontend repository](https://github.com/rickhekman/stekje
 
 ## Built With
 
-* [Express](https://expressjs.com/) - Node.js web application framework
-* [Sequelize](https://sequelize.org/) - Sequelize ORM is a promise-based Node.js ORM for Postgres
+* [Express](https://expressjs.com/) - Node.js web application framework.
+* [Sequelize](https://sequelize.org/) - Sequelize ORM is a promise-based Node.js ORM for Postgres.
 * [PostgreSQL](https://www.postgresql.org/) - PostgreSQL is a powerful, open source object-relational database system.
 * [Bcrypt](https://www.npmjs.com/package/bcrypt) - A library to help you hash passwords.
 * [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) - A compact, URL-safe means of representing
    claims to be transferred between two parties.
 * [Cors](https://www.npmjs.com/package/cors) - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 * [Body parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware.
-* [Docker](https://www.docker.com/) - Service for finding and sharing container images with your team and the Docker community
+* [Docker](https://www.docker.com/) - Service for finding and sharing container images with your team and the Docker community.
 
 #### This is version 0.1.0  
 
