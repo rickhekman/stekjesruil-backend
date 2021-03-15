@@ -1,9 +1,6 @@
 const Sequelize = require('sequelize');
 const databaseUrl = process.env.DATABASE_URL;
-const connection = new Sequelize(databaseUrl, 'username', 'password', {
-  host: 'heroku',
-  dialect: 'postgres'
-});
+const connection = new Sequelize(databaseUrl);
 
 connection
   .sync({ force: false })
