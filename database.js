@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const databaseUrl = process.env.DATABASE_URL;
-const connection = new Sequelize(databaseUrl);
+const connection = new Sequelize({databaseUrl, ssl: { rejectUnauthorized: false }});
 
 console.log("PROCES ENV DATABASE",process.env.DATABASE_URL)
 connection
