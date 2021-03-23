@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const databaseUrl = process.env.DATABASE_URL;
-const connection = new Sequelize({databaseUrl, ssl: { rejectUnauthorized: false }});
+const connection = new Sequelize(databaseUrl);
 
 connection
   .sync({ force: false })
